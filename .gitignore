@@ -14,3 +14,69 @@
 .cxx
 local.properties
 .idea/
+# Gradle
+.gradle/
+build/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# Kotlin / Compose
+.kotlin/
+*.kotlin_module
+composeApp/build/
+
+# Generated Android files
+app/release/
+app/debug/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Signing / secrets
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+secrets.properties
+*.pem
+*.p12
+
+# Google services / Firebase secrets
+# Descomenta si tu google-services.json contiene datos privados o por ambiente.
+# google-services.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node / miscellaneous tooling
+node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Test / coverage outputs
+coverage/
+*.ec
+*.exec
+
+# Temporary files
+*.tmp
+*.temp
