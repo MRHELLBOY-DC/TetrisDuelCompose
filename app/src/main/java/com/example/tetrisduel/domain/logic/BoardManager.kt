@@ -27,6 +27,14 @@ class BoardManager (
         )
     }
 
+    fun canPlacePiece(board: Board, piece: Piece): Boolean {
+        val positions = pieceRotationManager.getPiecePositions(piece)
+
+        return positions.all { position ->
+            isInsideBoard(board, position) && isCellEmpty(board, position)
+        }
+    }
+
     fun isInsideBoard(board: Board, position: Position): Boolean{
         return position.row in 0 until board.rows
                 && position.column in 0 until board.columns
