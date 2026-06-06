@@ -1,7 +1,13 @@
 package com.example.tetrisduel.domain.models
 
 enum class PieceType {
-    UNKNOWN
+    I,
+    O,
+    T,
+    S,
+    Z,
+    J,
+    L
 }
 
 

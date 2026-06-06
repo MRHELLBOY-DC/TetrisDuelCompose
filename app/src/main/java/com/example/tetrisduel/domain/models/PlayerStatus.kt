@@ -1,7 +1,12 @@
 package com.example.tetrisduel.domain.models
 
 enum class PlayerStatus {
-    UNKNOWN
+    WAITING,
+    READY,
+    PLAYING,
+    PAUSED,
+    GAME_OVER,
+    DISCONNECTED
 }
 
 
