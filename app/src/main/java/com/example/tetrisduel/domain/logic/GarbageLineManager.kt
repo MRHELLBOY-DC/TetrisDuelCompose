@@ -17,6 +17,16 @@ class GarbageLineManager {
         }
     }
 
+    fun wouldCauseGameOver(board: Board, amount: Int): Boolean {
+        val safeAmount = amount.coerceIn(0, board.rows)
+
+        return board.cells
+            .take(safeAmount)
+            .any { row ->
+                row.any { cell -> cell.state != CellState.EMPTY }
+            }
+    }
+
     fun createGarbageRow(
         row: Int,
         columns: Int
@@ -39,7 +49,6 @@ class GarbageLineManager {
             }
         }
     }
-
 
     fun addGarbageLines(
         board: Board,

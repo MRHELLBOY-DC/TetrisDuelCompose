@@ -9,6 +9,11 @@ import com.example.tetrisduel.domain.models.Position
 class BoardManager (
     private val pieceRotationManager: PieceRotationManager
 ) {
+    private fun isValidIndex(board: Board, position: Position): Boolean {
+        return position.row in 0 until board.rows &&
+                position.column in 0 until board.columns
+    }
+
     fun createEmptyBoard(rows: Int = 20, columns: Int = 10): Board {
         val cells = List(rows) { row ->
             List(columns) { column ->
@@ -27,24 +32,31 @@ class BoardManager (
         )
     }
 
-    fun canPlacePiece(board: Board, piece: Piece): Boolean {
-        val positions = pieceRotationManager.getPiecePositions(piece)
+    fun getCell(board: Board, position: Position): Cell? {
+        if (!isValidIndex(board, position)) return null
 
-        return positions.all { position ->
-            isInsideBoard(board, position) && isCellEmpty(board, position)
+        return board.cells[position.row][position.column]
+    }
+
+    fun updateCell(board: Board, updatedCell: Cell): Board {
+        if (!isValidIndex(board, updatedCell.position)) return board
+
+        val newCells = board.cells.mapIndexed { rowIndex, row ->
+            row.mapIndexed { columnIndex, currentCell ->
+                if (
+                    rowIndex == updatedCell.position.row &&
+                    columnIndex == updatedCell.position.column
+                ) {
+                    updatedCell
+                } else {
+                    currentCell
+                }
+            }
         }
+
+        return board.copy(cells = newCells)
     }
 
-    fun isInsideBoard(board: Board, position: Position): Boolean{
-        return position.row in 0 until board.rows
-                && position.column in 0 until board.columns
-    }
-
-    fun isCellEmpty(board: Board, position: Position): Boolean {
-        if (!isInsideBoard(board, position)) return false
-
-        return board.cells[position.row][position.column].state == CellState.EMPTY
-    }
 
     fun lockPiece(board: Board, piece: Piece): Board{
         val piecePositions = pieceRotationManager.getPiecePositions(piece = piece)

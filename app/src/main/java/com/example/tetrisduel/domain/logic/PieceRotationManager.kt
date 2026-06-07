@@ -6,7 +6,7 @@ import com.example.tetrisduel.domain.models.Position
 import com.example.tetrisduel.domain.models.Rotation
 
 class PieceRotationManager {
-    fun rotateClockWise(piece: Piece): Piece{
+    fun rotateClockwise(piece: Piece): Piece{
         val newRotation = when(piece.rotation){
             Rotation.DEGREE_0 -> Rotation.DEGREE_90
             Rotation.DEGREE_90 -> Rotation.DEGREE_180
@@ -17,7 +17,7 @@ class PieceRotationManager {
         return piece.copy(rotation = newRotation)
     }
 
-    fun rotateCounterClockWise(piece: Piece): Piece{
+    fun rotateCounterClockwise(piece: Piece): Piece{
         val newRotation = when(piece.rotation){
             Rotation.DEGREE_0 -> Rotation.DEGREE_270
             Rotation.DEGREE_90 -> Rotation.DEGREE_0
