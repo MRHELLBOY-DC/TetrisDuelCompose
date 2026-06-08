@@ -1,5 +1,11 @@
 package com.example.tetrisduel.ui.states
 
-class LobbyUiState
+data class LobbyUiState(
+    val playerName: String = "",
+    val roomCode: String = "",
+    val generatedRoomCode: String? = null,
+    val isLoading: Boolean = false,
+    val errorMessage: String? = null
+)
 
 
