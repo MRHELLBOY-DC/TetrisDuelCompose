@@ -5,7 +5,7 @@ data class LobbyUiState(
     val roomCode: String = "",
     val generatedRoomCode: String? = null,
     val isLoading: Boolean = false,
-    val errorMessage: String? = null
+    val errorMessage: String? = null,
+    val isConnectedToServer: Boolean = false,
+    val isWaitingForOpponent: Boolean = false
 )
-
-
