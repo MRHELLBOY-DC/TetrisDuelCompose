@@ -24,6 +24,11 @@ SocketManager @Inject constructor() {
 
         val opts = IO.Options.builder()
             .setTransports(arrayOf("websocket"))
+            .setReconnection(true)
+            .setReconnectionAttempts(Int.MAX_VALUE)
+            .setReconnectionDelay(1000)
+            .setReconnectionDelayMax(5000)
+            .setTimeout(20000)
             .build()
 
         socket = IO.socket(SocketConfig.SERVER_URL, opts).apply {

@@ -51,14 +51,6 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation.runtime.ktx)
 
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
-
-    implementation(libs.coil.compose)
-    implementation(libs.coil.network.okhttp)
-
-    implementation(libs.converter.gson)
     implementation("io.socket:socket.io-client:2.1.1")
 
     implementation(libs.jetbrains.kotlinx.coroutines.android)
