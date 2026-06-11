@@ -1,6 +1,6 @@
 package com.example.tetrisduel.data.socket
 
-object SocketEvents {
+object  SocketEvents {
     // Cliente → Servidor
     const val CREATE_ROOM = "create_room"
     const val JOIN_ROOM = "join_room"

@@ -9,7 +9,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class SocketManager @Inject constructor() {
+class
+SocketManager @Inject constructor() {
 
     private var socket: Socket? = null
 

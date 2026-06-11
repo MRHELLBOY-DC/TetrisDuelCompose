@@ -67,25 +67,6 @@ fun GameScreen(
                 .padding(horizontal = 8.dp, vertical = 8.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            // Top bar: connection status
-            if (uiState.isOnline) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    ConnectionStatusView(
-                        isConnected = uiState.isConnectedToServer,
-                        label = if (uiState.isConnectedToServer) "Online" else "Sin conexión"
-                    )
-                    ConnectionStatusView(
-                        isConnected = uiState.isOpponentConnected,
-                        label = uiState.opponentName
-                    )
-                }
-                Spacer(modifier = Modifier.height(4.dp))
-            }
-
             // Main game area
             Row(
                 modifier = Modifier
