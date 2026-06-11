@@ -4,8 +4,6 @@ import com.example.tetrisduel.domain.models.Board
 import com.example.tetrisduel.domain.models.Cell
 import com.example.tetrisduel.domain.models.CellState
 import com.example.tetrisduel.domain.models.Position
-import kotlin.random.Random
-
 class GarbageLineManager {
     fun calculateGarbageLines(linesCleared: Int) : Int {
         return when(linesCleared) {
@@ -30,23 +28,13 @@ class GarbageLineManager {
     fun createGarbageRow(
         row: Int,
         columns: Int
-    ): List<Cell>{
-        val holeColumn = Random.nextInt(columns)
-
+    ): List<Cell> {
         return List(columns) { column ->
-            if (column == holeColumn) {
-                Cell(
-                    position = Position(row = row, column = column),
-                    state = CellState.EMPTY,
-                    pieceType = null
-                )
-            }else{
-                Cell(
-                    position = Position(row = row, column = column),
-                    state = CellState.GARBAGE,
-                    pieceType = null
-                )
-            }
+            Cell(
+                position = Position(row = row, column = column),
+                state = CellState.GARBAGE,
+                pieceType = null
+            )
         }
     }
 

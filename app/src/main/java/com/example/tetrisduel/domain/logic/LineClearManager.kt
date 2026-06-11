@@ -23,7 +23,7 @@ class LineClearManager {
 
     fun clearCompletedLines(board: Board): LineClearResult {
         val incompleteRows = board.cells.filter { row ->
-            row.any { cell -> cell.state == CellState.EMPTY }
+            row.any { cell -> cell.state != CellState.FILLED }
         }
 
         val linesCleared = board.rows - incompleteRows.size
