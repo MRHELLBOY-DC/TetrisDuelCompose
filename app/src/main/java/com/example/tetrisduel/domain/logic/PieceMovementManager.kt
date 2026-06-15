@@ -3,9 +3,7 @@ package com.example.tetrisduel.domain.logic
 import com.example.tetrisduel.domain.models.Board
 import com.example.tetrisduel.domain.models.Piece
 
-class
-
-PieceMovementManager(
+class PieceMovementManager(
     private val collisionDetector: CollisionDetector
 ) {
 
