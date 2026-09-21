@@ -53,7 +53,6 @@ class GarbageLineManager {
                 row = remainingRows.size + index,
                 columns = board.columns
             )
-
         }
 
         val shiftedRows = remainingRows.mapIndexed { rowIndex, row ->

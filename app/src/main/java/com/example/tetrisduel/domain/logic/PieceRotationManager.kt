@@ -28,18 +28,6 @@ class PieceRotationManager {
         return piece.copy(rotation = newRotation)
     }
 
-
-    fun getPiecePositions(piece: Piece): List<Position> {
-        val pivot = piece.pivot
-
-        return getRelativePositions(piece.type, piece.rotation).map { relativePosition ->
-            Position(
-                row = pivot.row + relativePosition.row,
-                column = pivot.column + relativePosition.column
-            )
-        }
-    }
-
     fun getRelativePositions(
         type: PieceType,
         rotation: Rotation
@@ -54,6 +42,19 @@ class PieceRotationManager {
             PieceType.L -> getLPositions(rotation)
         }
     }
+
+
+    fun getPiecePositions(piece: Piece): List<Position> {
+        val pivot = piece.pivot
+
+        return getRelativePositions(piece.type, piece.rotation).map { relativePosition ->
+            Position(
+                row = pivot.row + relativePosition.row,
+                column = pivot.column + relativePosition.column
+            )
+        }
+    }
+
 
     private fun getIPositions(rotation: Rotation): List<Position>{
         /*
